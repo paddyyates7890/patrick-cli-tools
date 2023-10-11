@@ -1,30 +1,35 @@
 #include "../cli/interface.h"
 #include "app.h"
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 void goToCommand(char command){
+    command = toupper(command);
+
     if (command == 'X') {
         system("clear");
         exit(0);
     }
     else if (command == 'H') {
+        printf("\n");
         getPadding(50);
-        printf("\n Help is not complete");
+        printf("Help is not complete");
         homeInput();
     }
     else if (command == 'D') {
+        printf("\n");
         getPadding(50);
-        printf("\n Development tools is not complete");
+        printf("Development tools is not complete");
         homeInput();
     }
 }
 
 void homeInput(){
     char command;
+    printf("\n\n");
     getPadding(50);
-
-    printf("%s\n Enter Command: ", WHT);
+    printf("%sEnter Command: ", WHT);
     scanf(" %c", &command);
 
     goToCommand(command);

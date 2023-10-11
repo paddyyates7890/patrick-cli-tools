@@ -30,7 +30,9 @@ void getPadding(int ammount){
     printf("%*s", window, ""); 
 }
 
-void drawLine(int length){
+void drawLine(){
+    int length = getWindow();
+
     for (int i = 0; i < length+1; i++) {
         printf("_");
     }
@@ -39,11 +41,14 @@ void drawLine(int length){
 }
 
 void getCommands(){
-    getPadding(50);
+    getPadding(35);
     
+    printf("%s(O) other tools ", MAG);
+    printf("%s(S) Scripts ", YEL);
     printf("%s(D) Development Tools ", CYN);
     printf("%s(H) Help ", GRN);
-    printf("%s(X) Exit", RED); // DO NOT REMOVE !!!!
+    printf("%s(X) Exit ", RED); // DO NOT REMOVE !!!!
+    printf("%s(T) Test ", WHT);
 }
 
 void getBody(){
@@ -82,7 +87,4 @@ void getHeader(){
     }
     
     printf("%s\n", WHT);
-    
-    getPadding(50);
-    drawLine(100);
 }

@@ -20,7 +20,7 @@ void testColours();
 int getWindow();
 void getPadding(int ammount);
 
-void drawLine(int length);
+void drawLine();
 void getBody();
 void getHeader();
 
