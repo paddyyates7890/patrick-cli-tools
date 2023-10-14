@@ -8,11 +8,17 @@
 // testing
 void testColours(){
     printf("%s RED\n", RED);
+    getPadding(50);
     printf("%s GRN\n", GRN);
+    getPadding(50);
     printf("%s YEL\n", YEL);
+    getPadding(50);
     printf("%s BLU\n", BLU);
+    getPadding(50);
     printf("%s MAG\n", MAG);
+    getPadding(50);
     printf("%s CYN\n", CYN);
+    getPadding(50);
     printf("%s WHT\n", WHT);
 }
 

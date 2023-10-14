@@ -1,8 +1,8 @@
-#ifndef _HELP_
-#define _HELP_
+#ifndef _HELP_ACTIVE
+#define _HELP_ACTIVE
 
 // help
-void drawHomeCommandHelp()
-void drawHelp();
+void getHomeCommandHelp();
+void getHelp();
 
 #endif

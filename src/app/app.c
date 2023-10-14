@@ -1,6 +1,9 @@
 #include "../cli/interface.h"
 #include "app.h"
+#include "devtool.h"
 #include "help.h"
+#include "../test/test.h"
+#include "scripts.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,19 +17,19 @@ void goToCommand(char command){
     }
     else if (command == 'H') {
         printf("\n");
-        drawHelp(); 
+        getHelp(); 
         homeInput();
     }
     else if (command == 'D') {
         printf("\n");
         getPadding(50);
-        printf("Development tools is not complete");
+        getDevTools();
         homeInput();
     }
     else if (command == 'T'){
         printf("\n");
         getPadding(50);
-        printf("Test is mot complete");
+        runTests();
         homeInput();
     }
     else if (command == 'O'){
@@ -38,7 +41,7 @@ void goToCommand(char command){
     else if (command == 'S'){
         printf("\n");
         getPadding(50);
-        printf("Scripts are not complete");
+        getScritps();
         homeInput();
     }
 }
