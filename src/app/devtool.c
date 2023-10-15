@@ -31,7 +31,7 @@ void devtoolInput(){
     char command;
     printf("\n\n");
     getPadding(50);
-    printf("%s(Development Tools) %sEnter Command ",GRN, WHT);
+    printf("%s(Development Tools) %sEnter Command: ",GRN, WHT);
     scanf(" %c", &command);
 
     goToDevCommand(command);

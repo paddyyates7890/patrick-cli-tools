@@ -5,9 +5,6 @@
 
 int main(int argc, char *argv[])
 {
-    int running = 1;
-    int first = 1;
-
     system("clear"); 
     getHeader();
     getBody();

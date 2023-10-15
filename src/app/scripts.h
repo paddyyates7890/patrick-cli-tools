@@ -2,7 +2,9 @@
 #define _SCRIPTS_ACTIVE
 
 char* getAllScripts();
-void getScritps();
+int saveNewScript(char *script);
+void addNewScript();
+void getScripts();
 void goToScriptCommand(char command);
 void scriptsInput();
 
