@@ -7,7 +7,6 @@
 void getScriptCommands(){
     getPadding(35);
     printf("%s(A) Add Script ", MAG); 
-    printf("%s(H) Scripts Help ", GRN);
     printf("%s(R) Run script ", YEL);
     printf("%s(X) Back to home", RED);
 }

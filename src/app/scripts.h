@@ -1,6 +1,8 @@
 #ifndef _SCRIPTS_ACTIVE
 #define _SCRIPTS_ACTIVE
 
+#define SCRIPT_FILE "scripts.txt"
+
 char* getAllScripts();
 int saveNewScript(char *script);
 void addNewScript();

@@ -12,15 +12,15 @@ int filesz(FILE *f){
 	return size;
 }
 
-static FILE *open_file_read() {
-    return fopen(SCRIPTS, "r");
+FILE *open_file_read(char *file) {
+    return fopen(file, "r");
 }
 
-static FILE *open_file_write() {
-	return fopen(SCRIPTS, "w");
+FILE *open_file_write(char *file) {
+	return fopen(file, "w");
 }
 
-static void close_file(FILE *file){
+void close_file(FILE *file){
 	fclose(file);
 }
 
@@ -48,8 +48,8 @@ char* read_line(int line){
 	return pass;
 }
 
-char* rFileConcat(){
-	FILE *f = open_file_read();
+char* rFileConcat(char *file){
+	FILE *f = open_file_read(file);
 	char word[512];
 	int size = filesz(f);
 	char *fileContents = malloc(size);
@@ -60,8 +60,8 @@ char* rFileConcat(){
 	return fileContents;
 }
 
-int write_line(char *line){
-	FILE *f = open_file_write();	
+int write_line(char *line, char *file){
+	FILE *f = open_file_write(file);	
 	fputs(line, f);
 	close_file(f);
 	return 1;

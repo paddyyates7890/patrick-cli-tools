@@ -12,7 +12,7 @@ void goToCommand(char command){
     command = toupper(command);
 
     if (command == 'X') {
-        system("clear");
+        int err = system("clear");
         exit(0);
     }
     else if (command == 'H') {
@@ -51,7 +51,7 @@ void homeInput(){
     printf("\n\n");
     getPadding(50);
     printf("%sEnter Command: ", WHT);
-    scanf(" %c", &command);
+    int err = scanf(" %c", &command);
 
     goToCommand(command);
 }

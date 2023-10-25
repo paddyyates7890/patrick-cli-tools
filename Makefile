@@ -16,8 +16,11 @@ $(TARGET): build $(OBJECTS)
 $(SO_TARGET): $(TARGET) $(OBJECTS)
 	cc -o $@ $(OBJECTS)
 
+
 build:
 	@mkdir -p build
+	@cp help.txt build/
+	@cp scripts.txt build/
 
 clean:
 	rm -rf build $(objects)

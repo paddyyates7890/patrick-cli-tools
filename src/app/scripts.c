@@ -8,11 +8,11 @@
 #include <ctype.h>
 
 char* getAllScripts(){
-    return rFileConcat();
+    return rFileConcat(SCRIPT_FILE);
 }
 
 int saveNewScript(char *script){
-    return write_line(script);
+    return write_line(script, SCRIPT_FILE);
 }
 
 void addNewScript(){
@@ -46,11 +46,6 @@ void goToScriptCommand(char command){
         getHeader();
         getBody();
         homeInput();
-    }
-    else if (command == 'H'){
-        printf("\n");
-        printf("not complete");
-        scriptsInput();
     }
     else if (command == 'R') {
         printf("\n");

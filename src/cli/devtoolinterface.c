@@ -6,7 +6,6 @@
 void getDevToolCommands(){
     getPadding(35);
     
-    printf("%s(H) Dev Tools Help ", GRN);
     printf("%s(X) Back to home", RED);
 }
 

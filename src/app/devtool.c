@@ -20,11 +20,6 @@ void goToDevCommand(char command){
         getBody();
         homeInput();
     }
-    else if (command == 'H'){
-        printf("\n");
-        printf("not complete");
-        devtoolInput();
-    }
 }
 
 void devtoolInput(){
