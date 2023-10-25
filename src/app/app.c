@@ -41,7 +41,7 @@ void goToCommand(char command){
     else if (command == 'S'){
         printf("\n");
         getPadding(50);
-        getScritps();
+        getScripts();
         homeInput();
     }
 }

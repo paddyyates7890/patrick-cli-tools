@@ -2,11 +2,14 @@
 #include <stdio.h>
 #include "interface.h"
 #include "stdlib.h"
+#include "string.h"
 
 void getScriptCommands(){
     getPadding(35);
-
-    // exit help add run
+    printf("%s(A) Add Script ", MAG); 
+    printf("%s(H) Scripts Help ", GRN);
+    printf("%s(R) Run script ", YEL);
+    printf("%s(X) Back to home", RED);
 }
 
 void getScriptsMenu(){
@@ -17,5 +20,11 @@ void getScriptsMenu(){
 }
 
 void getScriptsList(char *scripts){
-// return a fomatted list of all the scripts
+    int size, i;
+    
+    printf("%s\n", WHT);
+    getPadding(50);
+    // in the future i will need to stop it printing after a certain length 
+    // or certain number of words but not today
+    printf("%s\n", scripts); 
 }
