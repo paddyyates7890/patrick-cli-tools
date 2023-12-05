@@ -47,7 +47,7 @@ void drawLine(){
 }
 
 void getCommands(){
-    getPadding(35);
+    getPadding(50);
     
     printf("%s(O) other tools ", MAG);
     printf("%s(S) Scripts ", YEL);
@@ -66,7 +66,7 @@ void getHeader(){
     int padding = 0;
     char *thisLine;
     
-    padding = getWindow() - 25;
+    padding = getWindow() - 35;
     printf("%*s",padding,"");
     for (int i = 0; i < 50; i++) {
         printf("%s_", BLU)  ;
