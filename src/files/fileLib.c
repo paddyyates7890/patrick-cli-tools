@@ -1,4 +1,5 @@
 #include "fileLib.h"
+#include "../linked-list/linkedList.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -58,6 +59,17 @@ char* rFileConcat(char *file){
 	}
 	close_file(f);
 	return fileContents;
+}
+
+linkedList* rFileList(char *file){
+    FILE *f = open_file_read(file);
+    char word[512];
+    linkedList *list = create_list();
+    while (fgets(word, sizeof(word), f) != NULL){
+        LLpush(list, word);
+    }
+    close_file(f);
+    return list;
 }
 
 int write_line(char *line, char *file){

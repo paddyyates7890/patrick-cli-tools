@@ -3,6 +3,7 @@
 
 struct listNode;
 typedef struct listNode{
+    int indx;
     struct listNode *next;
     struct listNode *prev;
     void *value;
@@ -20,6 +21,7 @@ void LLdestroy(linkedList *list);
 void LLpush(linkedList *list, void *value);
 void *LLpop(linkedList *list);
 void *LLremove(linkedList *list, listNode* node);
+void *LLindex(linkedList *list, int index);
 
 #define LLcount(A) ((A)->count);
 

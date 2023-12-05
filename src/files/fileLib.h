@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "../linked-list/linkedList.h"
 
 #ifndef _FILELIB_ACTIVE
 #define _FILELIB_ACTIVE
@@ -8,6 +9,7 @@ FILE *open_file_read(char *file);
 FILE *open_file_write(char *file);
 char* read_line(int line);
 char* rFileConcat(char *file);
+linkedList* rFileList(char *file);
 void close_file(FILE *file);
 int write_line(char *line, char *file);
 

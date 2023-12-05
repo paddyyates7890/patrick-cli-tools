@@ -7,11 +7,9 @@ linkedList* create_list(){
 
 void LLdestroy(linkedList *list){
     LLFOREACH(list, first, next, cur){
-        if (cur->prev)
-        {
+        if (cur->prev){
             free(cur->prev);
         }
-        
     }
 
     free(list->last);
@@ -19,16 +17,19 @@ void LLdestroy(linkedList *list){
 }
 
 void LLpush(linkedList *list, void *value){
-    listNode *node = calloc(1, sizeof(node));
+    int nodeSize = sizeof(listNode);
+    listNode *node = calloc(1, nodeSize);
     node->value = value;
 
     if (list->last == NULL) {
+        node->indx = 0;
         list->first = node;
         list->last = node;
     } else {
         list->last->next = node;
         node->prev = list->last;
         list->last = node;
+        node->indx = node->prev->indx + 1;
     }
 
     list->count++;
@@ -63,4 +64,24 @@ void *LLremove(linkedList *list, listNode* node){
     free(node);
     
     return result;
+}
+
+void *LLindex(linkedList *list, int index){
+    if (index == 0) {
+        return list->first->value;
+    }else if (index == list->count) {
+        return list->last->value;
+    }
+
+    int currentIndx = 0;
+    listNode *currentNode = list->first;
+    while (index != currentIndx){
+       if (currentNode->indx == index) {
+            break;
+       }else {
+            currentNode = currentNode->next;
+       }
+    }
+
+    return currentNode->value;
 }
