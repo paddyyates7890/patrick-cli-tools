@@ -8,17 +8,17 @@
 // testing
 void testColours(){
     printf("%s RED\n", RED);
-    getPadding(50);
+    
     printf("%s GRN\n", GRN);
-    getPadding(50);
+    
     printf("%s YEL\n", YEL);
-    getPadding(50);
+    
     printf("%s BLU\n", BLU);
-    getPadding(50);
+    
     printf("%s MAG\n", MAG);
-    getPadding(50);
+    
     printf("%s CYN\n", CYN);
-    getPadding(50);
+    
     printf("%s WHT\n", WHT);
 }
 
@@ -28,12 +28,6 @@ int getWindow(){
     ioctl(0,TIOCGWINSZ,&w);
 
     return w.ws_col / 2;
-}
-
-void getPadding(int ammount){
-    int window = getWindow();
-    window = window - ammount;
-    printf("%*s", window, ""); 
 }
 
 void drawLine(){
@@ -47,7 +41,7 @@ void drawLine(){
 }
 
 void getCommands(){
-    getPadding(50);
+    
     
     printf("%s(O) other tools ", MAG);
     printf("%s(S) Scripts ", YEL);
@@ -62,12 +56,7 @@ void getBody(){
 }
 
 void getHeader(){
-
-    int padding = 0;
     char *thisLine;
-    
-    padding = getWindow() - 35;
-    printf("%*s",padding,"");
     for (int i = 0; i < 50; i++) {
         printf("%s_", BLU)  ;
     }
@@ -79,15 +68,12 @@ void getHeader(){
             char *part1 =  "|                   ";
             char *part2 = "CLI TOOLS";
             char *part3 = "                    |";
-            printf("%*s%s%s%s%s%s%s\n",padding,"",BLU,part1,GRN,part2,BLU,part3);
         }else {
             thisLine =  "|                                                |";
-            printf("%*s%s%s\n",padding,"",thisLine,BLU);
+            printf("%s%s\n",thisLine,BLU);
         }
     }
     
-    
-    printf("%*s",padding,"");
     for (int k = 0; k < 50; k++) {
         printf("%s%s",BLU, OVRSCR)  ;
     }

@@ -1,5 +1,6 @@
 #include "linkedList.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 linkedList* create_list(){
     return calloc(1, sizeof(linkedList));
@@ -67,21 +68,23 @@ void *LLremove(linkedList *list, listNode* node){
 }
 
 void *LLindex(linkedList *list, int index){
+    listNode* found = NULL;
+    int count = LLcount(list);
+
     if (index == 0) {
-        return list->first->value;
-    }else if (index == list->count) {
-        return list->last->value;
+        found = list->first; 
+    }else if (index == count){
+        found = list->last;
     }
 
-    int currentIndx = 0;
-    listNode *currentNode = list->first;
-    while (index != currentIndx){
-       if (currentNode->indx == index) {
-            break;
-       }else {
-            currentNode = currentNode->next;
-       }
+    if (found == NULL) {
+        LLFOREACH(list, first, next, cur){
+            if (cur->indx == index) {
+                found = cur;
+            }
+        }
     }
 
-    return currentNode->value;
+    return found->value;
+
 }

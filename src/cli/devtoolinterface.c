@@ -4,8 +4,6 @@
 #include <stdio.h>
 
 void getDevToolCommands(){
-    getPadding(35);
-    
     printf("%s(X) Back to home", RED);
 }
 

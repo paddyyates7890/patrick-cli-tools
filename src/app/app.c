@@ -22,25 +22,25 @@ void goToCommand(char command){
     }
     else if (command == 'D') {
         printf("\n");
-        getPadding(50);
+        
         getDevTools();
         homeInput();
     }
     else if (command == 'T'){
         printf("\n");
-        getPadding(50);
+        
         runTests();
         homeInput();
     }
     else if (command == 'O'){
         printf("\n");
-        getPadding(50);
+        
         printf("The other tools are not complete");
         homeInput();
     }
     else if (command == 'S'){
         printf("\n");
-        getPadding(50);
+        
         getScripts();
         homeInput();
     }
@@ -49,7 +49,7 @@ void goToCommand(char command){
 void homeInput(){
     char command;
     printf("\n\n");
-    getPadding(50);
+    
     printf("%sEnter Command: ", WHT);
     int err = scanf(" %c", &command);
 

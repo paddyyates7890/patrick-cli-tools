@@ -6,6 +6,5 @@
 
 void runTests(){
     testColours();
-
 }
 

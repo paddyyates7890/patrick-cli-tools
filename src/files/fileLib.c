@@ -49,6 +49,21 @@ char* read_line(int line){
 	return pass;
 }
 
+int rLines(char *file){
+    FILE *f = open_file_read(file);
+
+    int count = 0;
+    char c;
+    for (c = getc(f); c != EOF; c = getc(f)) {
+        if (c == '\n') {
+            count = count + 1;
+        }
+    }
+
+    close_file(f);
+    return count;
+}
+
 char* rFileConcat(char *file){
 	FILE *f = open_file_read(file);
 	char word[512];
@@ -62,13 +77,18 @@ char* rFileConcat(char *file){
 }
 
 linkedList* rFileList(char *file){
-    FILE *f = open_file_read(file);
-    char word[512];
     linkedList *list = create_list();
-    while (fgets(word, sizeof(word), f) != NULL){
-        LLpush(list, word);
+    int noLines = rLines(file);
+
+    FILE *f = open_file_read(file);
+    char lines[noLines][512];
+    
+    int i = 0;
+    while(fgets(lines[i], sizeof(lines[i]), f) != NULL) {
+        LLpush(list, lines[i]);
+        i = i + 1;
     }
-    close_file(f);
+
     return list;
 }
 

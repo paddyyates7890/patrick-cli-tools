@@ -1,4 +1,3 @@
-#include "../cli/interface.h"
 #include "help.h"
 #include "../files/fileLib.h"
 #include <stdio.h>
@@ -8,13 +7,10 @@ void getHelp(){
     char* helpLine = LLindex(help, 0);
     
     int listLen = LLcount(help);
-    int count = 1;
-    while (count < listLen) {
-        getPadding(55);
+    int i;
+    for (i = 1; i <= listLen; i++){
         printf("%s", helpLine);
-        helpLine = LLindex(help, count);
-        count ++;
+        helpLine = LLindex(help, i);
     }
-
     LLdestroy(help);
 }

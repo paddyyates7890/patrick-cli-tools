@@ -18,11 +18,11 @@ int saveNewScript(char *script){
 void addNewScript(){
     char *script;
     
-    getPadding(50);
+    
     printf("%s(Scripts) %sEnter Script Name: ",GRN,WHT);
     scanf(" %s", script);
     
-    getPadding(50);
+    
     saveNewScript(script);
     printf("\n the script has been saved");
     scriptsInput();
@@ -61,7 +61,7 @@ void goToScriptCommand(char command){
 void scriptsInput(){
     char command;
     printf("\n\n");
-    getPadding(50);
+    
     printf("%s(Scripts) %sEnter Command: ",GRN, WHT);
     scanf(" %c", &command);
 

@@ -8,6 +8,7 @@ int filesz(FILE *f);
 FILE *open_file_read(char *file);
 FILE *open_file_write(char *file);
 char* read_line(int line);
+int rLines(char * file);
 char* rFileConcat(char *file);
 linkedList* rFileList(char *file);
 void close_file(FILE *file);
