@@ -43,7 +43,6 @@ void goToScriptCommand(char command){
 
     if (command == 'X') {
         system("clear");
-        getHeader();
         getBody();
         homeInput();
     }

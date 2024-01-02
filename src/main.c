@@ -6,7 +6,6 @@
 int main(int argc, char *argv[])
 {
     system("clear"); 
-    getHeader();
     getBody();
     homeInput();    
     return 0;

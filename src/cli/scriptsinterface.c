@@ -14,13 +14,10 @@ void getScriptCommands(){
 void getScriptsMenu(){
     system("clear");
     printf("\n");
-    getHeader();
     getScriptCommands();
 }
 
 void getScriptsList(char *scripts){
-    int size, i;
-    
     printf("%s\n", WHT);
     
     // in the future i will need to stop it printing after a certain length 

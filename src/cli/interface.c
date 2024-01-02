@@ -41,8 +41,6 @@ void drawLine(){
 }
 
 void getCommands(){
-    
-    
     printf("%s(O) other tools ", MAG);
     printf("%s(S) Scripts ", YEL);
     printf("%s(D) Development Tools ", CYN);
@@ -53,30 +51,4 @@ void getCommands(){
 
 void getBody(){
     getCommands();
-}
-
-void getHeader(){
-    char *thisLine;
-    for (int i = 0; i < 50; i++) {
-        printf("%s_", BLU)  ;
-    }
-
-    printf("\n");
-
-    for (int j = 0; j < 3; j++) {
-        if (j == 1) {
-            char *part1 =  "|                   ";
-            char *part2 = "CLI TOOLS";
-            char *part3 = "                    |";
-        }else {
-            thisLine =  "|                                                |";
-            printf("%s%s\n",thisLine,BLU);
-        }
-    }
-    
-    for (int k = 0; k < 50; k++) {
-        printf("%s%s",BLU, OVRSCR)  ;
-    }
-    
-    printf("%s\n", WHT);
 }

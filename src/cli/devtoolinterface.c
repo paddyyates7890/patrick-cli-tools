@@ -10,7 +10,6 @@ void getDevToolCommands(){
 void getDevToolMenu(){
     system("clear");
     printf("\n");
-    getHeader();
     getDevToolCommands();
 }
 
