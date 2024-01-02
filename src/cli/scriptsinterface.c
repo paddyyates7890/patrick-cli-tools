@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "interface.h"
 #include "stdlib.h"
-#include "string.h"
 
 void getScriptCommands(){
     
@@ -15,12 +14,4 @@ void getScriptsMenu(){
     system("clear");
     printf("\n");
     getScriptCommands();
-}
-
-void getScriptsList(char *scripts){
-    printf("%s\n", WHT);
-    
-    // in the future i will need to stop it printing after a certain length 
-    // or certain number of words but not today
-    printf("%s\n", scripts); 
 }

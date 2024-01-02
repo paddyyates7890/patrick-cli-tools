@@ -18,7 +18,7 @@ FILE *open_file_read(char *file) {
 }
 
 FILE *open_file_write(char *file) {
-	return fopen(file, "w");
+	return fopen(file, "a");
 }
 
 void close_file(FILE *file){
@@ -79,23 +79,31 @@ char* rFileConcat(char *file){
 linkedList* rFileList(char *file){
     linkedList *list = create_list();
     int noLines = rLines(file);
-
-    FILE *f = open_file_read(file);
-    char lines[noLines][512];
     
-    int i = 0;
-    while(fgets(lines[i], sizeof(lines[i]), f) != NULL) {
-        LLpush(list, lines[i]);
-        i = i + 1;
+    if (noLines >= 1) {
+        FILE *f = open_file_read(file);
+        char lines[noLines][512];
+        
+        int i = 0;
+        while(fgets(lines[i], sizeof(lines[i]), f)) {
+            LLpush(list, lines[i]);
+            i = i + 1;
+        }
+        close_file(f);
     }
 
     return list;
 }
 
 int write_line(char *line, char *file){
-	FILE *f = open_file_write(file);	
-	fputs(line, f);
-	close_file(f);
+	FILE *f = open_file_write(file);
+    if (f == NULL) {
+        printf("Error opening File");
+    }else {
+        fprintf(f,"%s", line);
+	    close_file(f);
+    }
+
 	return 1;
 }
 

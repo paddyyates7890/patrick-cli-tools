@@ -15,4 +15,7 @@ COMMANDS:
  
     O - Other other tools not language specific
  
-    S - scripts shows a list of scripts that can be run from inside the program
+    S - scripts shows a list of scripts that can be run from inside the 
+        program
+ 
+THE HELP FILE IS NOT QUITE COMPLETE
