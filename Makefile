@@ -1,6 +1,6 @@
 CFLAGS=-g -O2 -Wall -Wextra -Isrc -rdynamic
 
-SOURCES=$(wildcard src/**/*.c src/*.c)
+SOURCES=$(wildcard src/**/**/*.c src/**/*.c src/*.c)
 OBJECTS=$(patsubst %.c,%.o, $(SOURCES))
 
 TARGET=build/clitools.a

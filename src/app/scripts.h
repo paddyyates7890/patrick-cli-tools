@@ -10,5 +10,6 @@ void printScripts(linkedList *scripts);
 void goToScriptCommand(char command);
 void scriptInput();
 void addCommand();
+void runCommand();
 #endif // !_SCRIPTS_ACTIVE
 

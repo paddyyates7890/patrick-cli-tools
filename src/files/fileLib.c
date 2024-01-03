@@ -97,12 +97,8 @@ linkedList* rFileList(char *file){
 
 int write_line(char *line, char *file){
 	FILE *f = open_file_write(file);
-    if (f == NULL) {
-        printf("Error opening File");
-    }else {
-        fprintf(f,"%s", line);
-	    close_file(f);
-    }
+    fprintf(f, "%s\n",line);    
+    close_file(f);
 
 	return 1;
 }

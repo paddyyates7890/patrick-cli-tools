@@ -4,7 +4,8 @@
 #include <stdio.h>
 
 void getDevToolCommands(){
-    printf("%s(X) Back to home", RED);
+    printf("%s(digit) enter command digit for tool ", BLU);
+    printf("%s(X) Back to home ", RED);
 }
 
 void getDevToolMenu(){

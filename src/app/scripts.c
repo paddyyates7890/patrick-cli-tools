@@ -38,12 +38,14 @@ void goToScriptCommand(char command){
     }else if (command == 'A'){
         addCommand();
     }else if (command == 'R'){
-        printf("test");        
+        runCommand();
     }
     else {
         printf("That was not a command option");
         scriptInput();
     }
+
+    getAllScripts();
 }
 
 void scriptInput(){
@@ -60,10 +62,26 @@ void addCommand(){
     char script[50];
 
     printf("\n\n");
-    printf("Enter the name of the script of the command to be run : ");
+    printf("Enter the script: ");
     scanf("%49s", script);
     
     write_line(script, SCRIPT_FILE);
+}
 
-    getAllScripts();
+void runCommand(){
+    char command;
+    int commandNum;
+
+    printf("\n\n");
+    printf("Enter the number of the command: ");
+    scanf(" %c", &command);
+    
+    if (isdigit(command)) {
+        commandNum = (int)command - '0';
+        char* line = read_line(commandNum);
+        system(line);
+    }else {
+        printf("That Was Not A Number");
+        runCommand();
+    }
 }

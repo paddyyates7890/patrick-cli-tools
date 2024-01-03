@@ -43,7 +43,11 @@ void goToCommand(char command){
         
         getAllScripts();
         homeInput();
+    }else {
+        printf("that is not a command");
+        homeInput();
     }
+
 }
 
 void homeInput(){
