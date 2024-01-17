@@ -17,5 +17,3 @@ COMMANDS:
  
     S - scripts shows a list of scripts that can be run from inside the 
         program
- 
-THE HELP FILE IS NOT QUITE COMPLETE

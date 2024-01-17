@@ -1,3 +1,4 @@
+#include "../dbg.h"
 #include "fileLib.h"
 #include "../linked-list/linkedList.h"
 #include <ctype.h>
@@ -14,11 +15,23 @@ int filesz(FILE *f){
 }
 
 FILE *open_file_read(char *file) {
-    return fopen(file, "r");
+    FILE *f = fopen(file, "r");
+    check(f, "Unable to Open File: open_file_read(): %s", file);
+    
+    return f;
+error:
+    close_file(f);
+    exit(0);
 }
 
 FILE *open_file_write(char *file) {
-	return fopen(file, "a");
+    FILE *f = fopen(file, "r");
+    check(f, "Unable to Open File: open_file_write(): %s", file);    
+
+    return f;
+error:
+    close_file(f);
+    exit(0);
 }
 
 void close_file(FILE *file){
@@ -54,9 +67,9 @@ int rLines(char *file){
 
     int count = 0;
     char c;
-    for (c = getc(f); c != EOF; c = getc(f)) {
+    while ((c = fgetc(f)) != EOF) {
         if (c == '\n') {
-            count = count + 1;
+            count ++;
         }
     }
 
@@ -101,5 +114,25 @@ int write_line(char *line, char *file){
     close_file(f);
 
 	return 1;
+}
+
+void printListFile(char* file, int addNo){
+    linkedList *lines = rFileList(file);
+    printf("\n\n");
+    
+    int fileLen = LLcount(lines);
+
+    int i;
+    char* line = LLindex(lines, 0);
+    for (i = 1; i <= fileLen; i++){
+        if (addNo) {
+            printf("%d: %s",i, line);
+        }else {
+            printf("%s", line);
+        }
+        line = LLindex(lines, i);
+    }
+
+    LLdestroy(lines);
 }
 

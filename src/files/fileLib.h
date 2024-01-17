@@ -13,5 +13,5 @@ char* rFileConcat(char *file);
 linkedList* rFileList(char *file);
 void close_file(FILE *file);
 int write_line(char *line, char *file);
-
+void printListFile(char* file, int addNo);
 #endif 

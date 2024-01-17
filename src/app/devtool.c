@@ -4,6 +4,7 @@
 #include "app.h"
 #include "../linked-list/linkedList.h"
 #include "../devtools/phptools.h"
+#include "../devtools/nginxtools.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -62,10 +63,11 @@ void devtoolInput(){
 }
 
 // This is abit rubish but every devtool will need to be added
+// any other ideas?
 linkedList* getToolList(){
     linkedList *tools = create_list();
     LLpush(tools, "php");
-
+    LLpush(tools, "nginx");
     return tools;
 }
 
@@ -73,6 +75,8 @@ void runDevTool(char *devtoolstr){
     
     if (!strcmp(devtoolstr, "php")) {
         getPhpDev();
+    }else if (!strcmp(devtoolstr, "nginx")) {
+        getNginxTools();
     }else {
         printf("That is not a tool");
     }

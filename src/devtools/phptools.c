@@ -4,6 +4,7 @@
 #include "../cli/interface.h"
 #include "../cli/devtoolscli/phpinterface.h"
 #include "../app/devtool.h"
+#include "runCliCommands.h"
 
 void getPhpDev(){
     getPhpMenu();
@@ -34,15 +35,8 @@ void goToPhpCommand(char command){
     }
 }
 
+// get the current version from the terminal.
 void getPhpVersion(){
-    FILE *phpV = popen("php --version", "r");
-    char result[128];
-    while(fgets(result, sizeof(result), phpV) != NULL){
-        printf("%s", result);
-    }
-    pclose(phpV);
-    
-    getchar();
-    printf("Press Enter to Continue");
-    while( getchar() != '\n' );    
+    char * command = "php --version";
+    runCliCommand(command);
 }

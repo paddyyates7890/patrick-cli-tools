@@ -5,27 +5,20 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../linked-list/linkedList.h"
+#include <string.h>
 #include "app.h"
 
 void getAllScripts(){
     getScriptsMenu();
-    
-    linkedList *scripts = rFileList(SCRIPT_FILE);
-    printf("%s \n\n", WHT);
-    
-    int scriptLen = LLcount(scripts);
+    printf("%s", WHT);
+    char* file = malloc(strlen(getenv("HOME")) + strlen(SCRIPT_FILE) + 1);
+    strcpy(file, getenv("HOME"));
+    strcat(file, SCRIPT_FILE);
 
-    int i;
-    char* script = LLindex(scripts, 0);
-    for (i = 1; i <= scriptLen; i++){
-        printf("%d: %s",i, script);
-        script = LLindex(scripts, i);
-    }
+    printListFile(file, 1);
+    free(file);
 
-    LLdestroy(scripts);
     scriptInput();
-    
 }
 
 void goToScriptCommand(char command){

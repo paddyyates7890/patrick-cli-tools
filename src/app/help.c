@@ -1,16 +1,13 @@
 #include "help.h"
 #include "../files/fileLib.h"
-#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 void getHelp(){
-    linkedList *help = rFileList(HELP_FILE);
-    char* helpLine = LLindex(help, 0);
+    char* file = malloc(strlen(getenv("HOME")) + strlen(HELP_FILE) + 1);
+    strcpy(file, getenv("HOME"));
+    strcat(file, HELP_FILE);
     
-    int listLen = LLcount(help);
-    int i;
-    for (i = 1; i <= listLen; i++){
-        printf("%s", helpLine);
-        helpLine = LLindex(help, i);
-    }
-    LLdestroy(help);
+    printListFile(file, 0); 
+    free(file);
 }
