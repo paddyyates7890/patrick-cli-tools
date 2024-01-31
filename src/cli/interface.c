@@ -1,7 +1,6 @@
 #include "interface.h"
 #include <asm-generic/ioctls.h>
 #include <stdio.h>
-#include <string.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
 
@@ -41,6 +40,8 @@ void drawLine(){
 }
 
 void getCommands(){
+    printf("https://github.com/paddyyates7890/patrick-cli-tools/issues\nPlease add any possible improvements or bugs here :) \n\n");
+
     printf("%s(O) other tools ", MAG);
     printf("%s(S) Scripts ", YEL);
     printf("%s(D) Development Tools ", CYN);

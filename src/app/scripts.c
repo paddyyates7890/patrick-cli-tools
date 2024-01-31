@@ -5,16 +5,12 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "app.h"
 
 void getAllScripts(){
     getScriptsMenu();
     printf("%s", WHT);
-    char* file = malloc(strlen(getenv("HOME")) + strlen(SCRIPT_FILE) + 1);
-    strcpy(file, getenv("HOME"));
-    strcat(file, SCRIPT_FILE);
-
+    char* file = getFile(SCRIPT_FILE);
     printListFile(file, 1);
     free(file);
 
@@ -57,8 +53,8 @@ void addCommand(){
     printf("\n\n");
     printf("Enter the script: ");
     scanf("%49s", script);
-    
-    write_line(script, SCRIPT_FILE);
+
+    write_line(script, getFile(SCRIPT_FILE));
 }
 
 void runCommand(){
@@ -71,8 +67,11 @@ void runCommand(){
     
     if (isdigit(command)) {
         commandNum = (int)command - '0';
-        char* line = read_line(commandNum);
+        commandNum = commandNum - 1;
+        char* line = read_line(commandNum, getFile(SCRIPT_FILE));
         system(line);
+        
+        free(line);
     }else {
         printf("That Was Not A Number");
         runCommand();

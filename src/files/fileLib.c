@@ -25,7 +25,7 @@ error:
 }
 
 FILE *open_file_write(char *file) {
-    FILE *f = fopen(file, "r");
+    FILE *f = fopen(file, "a");
     check(f, "Unable to Open File: open_file_write(): %s", file);    
 
     return f;
@@ -43,24 +43,24 @@ void fix_word(char word[512]){
 	word[strcspn(word, "\n")] = '\0';
 }
 
-char* read_line(int line){
-	FILE *f = open_file_read("words");
+char* read_line(int line, char* file){
+	FILE *f = open_file_read(file);
 	int count = 0;
-	char word[512];
-	char *pass;
-	while (fgets(word, sizeof(word), f) != NULL) {
+	char* pass = malloc(512);
+
+    while (fgets(pass, sizeof(pass), f) != NULL) {
 		if (count == line) {
-			fix_word(word);
-			pass = word;
-			return pass;
-		}
-		else {
-			count ++;
-		}
+            printf("%s", pass);
+            return pass;
+        }
+		count ++;
 	}
-	close_file(f);
-	return pass;
+	
+    close_file(f);
+	
+    return pass;
 }
+
 
 int rLines(char *file){
     FILE *f = open_file_read(file);
@@ -134,5 +134,15 @@ void printListFile(char* file, int addNo){
     }
 
     LLdestroy(lines);
+}
+
+char* getFile(char* file){
+
+    char* full_file = malloc(strlen(getenv("HOME")) + strlen(file) + 1);
+    strcpy(full_file, getenv("HOME"));
+    strcat(full_file, file);
+
+
+    return full_file;
 }
 

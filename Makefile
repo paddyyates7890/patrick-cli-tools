@@ -14,7 +14,7 @@ $(TARGET): build $(OBJECTS)
 	ranlib $@
 
 $(SO_TARGET): $(TARGET) $(OBJECTS)
-	cc -o $@ $(OBJECTS)
+	gcc $(CFLAGS) -o $@ $(OBJECTS)
 
 
 build:
