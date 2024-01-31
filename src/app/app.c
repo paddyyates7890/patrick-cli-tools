@@ -35,7 +35,7 @@ void goToCommand(char command){
     else if (command == 'O'){
         printf("\n");
         
-        printf("The other tools are not complete");
+        getOtherTools();
         homeInput();
     }
     else if (command == 'S'){
