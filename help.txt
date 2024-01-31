@@ -4,7 +4,7 @@ COMMANDS:
  
     X - Exit closes the program
  
-    H - Helo opens this help menue
+    H - Help opens this help menue
  
     D - Dev tools 
         opens a menu listing supported languages
@@ -15,5 +15,5 @@ COMMANDS:
  
     O - Other other tools not language specific
  
-    S - scripts shows a list of scripts that can be run from inside the 
-        program
+    S - scripts shows a list of scripts that you have added
+        to run from inside the program
