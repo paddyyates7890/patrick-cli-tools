@@ -12,4 +12,6 @@ sqlite3_stmt* step_result(sqlite3_stmt* res);
 int update_data(sqlite3* db, char* sql);
 char* fieldC(sqlite3_stmt* res, int indx);
 int fieldI(sqlite3_stmt* res, int indx);
+int param(int argcount, ...);
+int execute_sql_file();
 #endif

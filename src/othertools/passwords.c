@@ -2,6 +2,7 @@
 #include "../cli/interface.h"
 #include "../cli/othertoolcli/passwordinterface.h"
 #include "../app/othertool.h"
+#include "../database/sqliteConn.h"
 #include <stdio.h>
 #include <ctype.h>
 
@@ -37,10 +38,17 @@ void goToPasswordsCommand(char command){
     }
 }
 
-void addPassword(){
+void getNewPasswordInput(){
+    
+}
 
+void addPassword(char* password, char* application){
+   char* sql = "insert into pass_manage(password, application) values(%s, %s)";
+   int res = param(1, sql, password, application);
+
+   printf("Password Has been added");
 }
 
 void showPasswords(){
-
+    
 }

@@ -1,6 +1,7 @@
 #include "../dbg.h"
 #include "sqliteConn.h"
 #include "../sqlite3.h"
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -85,4 +86,26 @@ char* fieldC(sqlite3_stmt* res, int indx){
 int fieldI(sqlite3_stmt* res, int indx){
     int field = sqlite3_column_int(res, indx);
     return field;
+}
+
+int param(int argcount, ...){
+    int counter;
+    va_list argptr;
+    va_start(argptr, argcount);
+    char* argcurrent;
+    char* sqlnew = malloc(512);
+    char* sql = va_arg(argptr, char*);
+
+    for (counter=0; counter <= argcount; counter++) {
+        argcurrent =  va_arg(argptr, char *);
+        snprintf(sqlnew, sizeof(sqlnew), sql, argcurrent);
+    }
+    
+    int res = update_data(openDB(), sqlnew);
+    free(sqlnew);
+    return res;
+}
+
+int execute_sql_file(){
+   return 0; 
 }
