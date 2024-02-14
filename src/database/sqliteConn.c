@@ -88,21 +88,84 @@ int fieldI(sqlite3_stmt* res, int indx){
     return field;
 }
 
-int param(int argcount, ...){
-    int counter;
-    va_list argptr;
-    va_start(argptr, argcount);
-    char* argcurrent;
-    char* sqlnew = malloc(512);
-    char* sql = va_arg(argptr, char*);
+//sqlite3_stmt* paramS(int argcount, ...){
+//    int counter;
+//    va_list argptr;
+//    va_start(argptr, argcount);
+//    char* argcurrent;
+//    char* sqlnew = malloc(512);
+//    char* sql = va_arg(argptr, char*);
+//
+//    
+//    for (counter=0; counter <= argcount; counter++) {
+//        argcurrent =  va_arg(argptr, char *);
+//        snprintf(sqlnew, sizeof(sqlnew), sql, argcurrent);
+//    }
+//    
+//    sqlite3* db = openDB();
+//    sqlite3_stmt* res = select_data(db, sqlnew);
+//
+//    free(sqlnew);
+//    closeDB(db, res);
+//
+//    return res;
+//}
 
-    for (counter=0; counter <= argcount; counter++) {
-        argcurrent =  va_arg(argptr, char *);
-        snprintf(sqlnew, sizeof(sqlnew), sql, argcurrent);
-    }
+sqlite3_stmt* paramS(char* sql, ...){
+    sqlite3_stmt* res;
+    sqlite3* db = openDB();
+    char newsql[2000];
+
+    va_list argptr;
+    va_start(argptr, sql);
     
-    int res = update_data(openDB(), sqlnew);
-    free(sqlnew);
+    vsnprintf(newsql, 2000, sql, argptr);
+    res = select_data(db, newsql);
+
+    closeDB(db, res);
+
+    return res;
+}
+
+//int paramU(int argcount, ...){
+//    int counter;
+//    va_list argptr;
+//    va_start(argptr, argcount);
+//    char* argcurrent;
+//    char* sqlnew = malloc(1024);
+//    char* sql = va_arg(argptr, char*);
+//    int sqlLen = strlen(sql);
+//
+//    for (counter=0; counter <= argcount; counter++) {
+//        argcurrent =  va_arg(argptr, char *);
+//        snprintf(sqlnew, (sqlLen + strlen(argcurrent)), sql, argcurrent);
+//        sqlLen = strlen(sqlnew);
+//        debug("%s", sqlnew);
+//    }
+//    debug("%s", sqlnew);
+//    exit(0);
+//    sqlite3* db = openDB();
+//    int res = update_data(db, sqlnew);
+//
+//    free(sqlnew);
+//    closeDB(db, NULL);
+//
+//    return res;
+//}
+
+int paramU(char *sql, ...){
+    char newsql[2000];
+
+    va_list argptr;
+    va_start(argptr, sql);
+    
+    vsnprintf(newsql, 2000, sql, argptr);
+
+    sqlite3* db = openDB();
+    int res = update_data(db, newsql);
+
+    closeDB(db, NULL);
+
     return res;
 }
 
