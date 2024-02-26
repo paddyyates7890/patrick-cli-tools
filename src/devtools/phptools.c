@@ -1,10 +1,10 @@
 #include "phptools.h"
 #include <ctype.h>
 #include <stdio.h>
-#include "../cli/interface.h"
-#include "../cli/devtoolscli/phpinterface.h"
+#include <stdlib.h>
 #include "../app/devtool.h"
 #include "runCliCommands.h"
+#include "../app/app.h"
 
 void getPhpDev(){
     getPhpMenu();
@@ -39,4 +39,16 @@ void goToPhpCommand(char command){
 void getPhpVersion(){
     char * command = "php --version";
     runCliCommand(command);
+}
+
+void getPhpCommands(){
+    printf("%s(V) version ", BLU);
+    printf("%s(X) Exit to dev tools " , RED);
+}
+
+void getPhpMenu(){
+    system("clear");
+    printf("\n");
+    printf("%sPHP\n\n%s", GRN, WHT);
+    getPhpCommands();
 }

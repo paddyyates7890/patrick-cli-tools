@@ -1,6 +1,4 @@
 #include "devtool.h"
-#include "../cli/devtoolinterface.h"
-#include "../cli/interface.h"
 #include "app.h"
 #include "../linked-list/linkedList.h"
 #include "../devtools/phptools.h"
@@ -81,3 +79,15 @@ void runDevTool(char *devtoolstr){
         printf("That is not a tool");
     }
 }
+
+void getDevToolCommands(){
+    printf("%s(digit) enter command digit for tool ", BLU);
+    printf("%s(X) Back to home ", RED);
+}
+
+void getDevToolMenu(){
+    system("clear");
+    printf("\n");
+    getDevToolCommands();
+}
+

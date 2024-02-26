@@ -8,4 +8,6 @@ void goToDevCommand(char command);
 void devtoolInput();
 linkedList* getToolList();
 void runDevTool(char* devtoolstr);
+void getDevToolCommands();
+void getDevToolMenu();
 #endif // !_DEVTOOL_ACTIVE

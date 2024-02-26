@@ -1,6 +1,4 @@
 #include "othertool.h"
-#include "../cli/othertoolinterface.h"
-#include "../cli/interface.h"
 #include "app.h"
 #include "../linked-list/linkedList.h"
 #include "../othertools/passwords.h"
@@ -76,4 +74,15 @@ void runotherTool(char *toolstr){
     }else {
         printf("That is not a tool");
     }
+}
+
+void getotherToolCommands(){
+    printf("%s(digit) enter command digit for tool ", BLU);
+    printf("%s(X) Back to home ", RED);
+}
+
+void getotherToolMenu(){
+    system("clear");
+    printf("\n");
+    getotherToolCommands();
 }

@@ -1,6 +1,4 @@
 #include "scripts.h"
-#include "../cli/interface.h"
-#include "../cli/scriptsinterface.h"
 #include "../files/fileLib.h"
 #include <ctype.h>
 #include <stdio.h>
@@ -76,4 +74,17 @@ void runCommand(){
         printf("That Was Not A Number");
         runCommand();
     }
+}
+
+void getScriptCommands(){
+    
+    printf("%s(A) Add Script ", MAG); 
+    printf("%s(R) Run script ", YEL);
+    printf("%s(X) Back to home", RED);
+}
+
+void getScriptsMenu(){
+    system("clear");
+    printf("\n");
+    getScriptCommands();
 }

@@ -1,10 +1,9 @@
 #include "passwords.h"
-#include "../cli/interface.h"
-#include "../cli/othertoolcli/passwordinterface.h"
+#include "../app/app.h"
 #include "../app/othertool.h"
 #include "../database/sqliteConn.h"
-#include "../sqlite3.h"
-#include "../dbg.h"
+#include "../database/sqlite3.h"
+#include "../app/dbg.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -116,4 +115,17 @@ void addPassword(char* password, char* application){
 
 void showPasswords(){
    printf("Need to implement this"); 
+}
+
+void getPasswordCommands(){
+    printf("%s(A) Add password ", GRN);
+    printf("%s(S) Show passwords ", BLU);
+    printf("%s(X) Exit to other tools: ", RED);
+}
+
+void getPasswordMenu(){
+    system("clear");
+    printf("\n");
+    printf("%sPASSWORDS\n\n%s", MAG, WHT);
+    getPasswordCommands();
 }

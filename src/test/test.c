@@ -1,9 +1,9 @@
-#include "../cli/interface.h"
 #include "../files/fileLib.h"
 #include <stdio.h>
 #include "test.h"
 #include "../database/sqliteConn.h"
-#include "sqlite3.h"
+#include "../database/sqliteConn.h"
+#include "../app/app.h"
 
 void runTests(){
     testColours();

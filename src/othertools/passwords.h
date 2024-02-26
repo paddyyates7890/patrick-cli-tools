@@ -12,4 +12,6 @@ void addPassword(char* password, char* application);
 
 void showPasswords();
 
+void getPasswordCommands();
+void getPasswordMenu();
 #endif

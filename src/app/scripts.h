@@ -11,4 +11,6 @@ void goToScriptCommand(char command);
 void scriptInput();
 void addCommand();
 void runCommand();
+void getScriptsMenu();
+void getScriptsList(char *scripts);
 #endif // !_SCRIPTS_ACTIVE
