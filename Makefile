@@ -19,6 +19,10 @@ $(SO_TARGET): $(TARGET) $(OBJECTS)
 
 build:
 	@mkdir -p build
+	@cp scripts.txt ~/scripts.txt
+	@cp help.txt ~/help.txt
+	@touch tools.sqlite
+	@./patchdatabase
 
 clean:
 	rm -rf build $(objects)

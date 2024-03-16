@@ -1,10 +1,10 @@
 #include <stdlib.h>
-#include "app/app.h"
-#include "app/othertool.h"
-#include "app/devtool.h"
-#include "app/help.h"
-#include "test/test.h"
-#include "app/scripts.h"
+#include "app.h"
+#include "othertool.h"
+#include "devtool.h"
+#include "help.h"
+#include "../test/test.h"
+#include "scripts.h"
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>

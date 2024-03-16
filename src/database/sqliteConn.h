@@ -1,4 +1,4 @@
-#include "../sqlite3.h"
+#include "sqlite3.h"
 
 #ifndef _TOOLS_DATABASE_
 #define _TOOLS_DATABASE_

@@ -1,4 +1,4 @@
-#include "../dbg.h"
+#include "../app/dbg.h"
 #include "fileLib.h"
 #include "../linked-list/linkedList.h"
 #include <ctype.h>

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+CURRENT_VERSION=5
+
+SAVED_VERSION= echo "SELECT MAX(version) FROM DB_VERSION;" | sqlite3 ~/tools.sqlite
+
+SQLPATH="patch/tooldb_v_$CURRENT_VERSION.sql"
+
+if [[ $SAVED_VERSION -lt $CURRENT_VERSION ]] ; then
+    SAVED_VERSION=$((SAVED_VERSION+1))
+    echo $SQLPATH
+    cat $SQLPATH | sqlite3 ~/tools.sqlite
+    echo "INSERT INTO DB_VERSION(VERSION, VDATE) VALUES($CURRENT_VERSION, date('now'));" | sqlite3 ~/tools.sqlite  
+fi
+
+echo "SELECT * FROM DB_VERSION" | sqlite3 ~/tools.sqlite
