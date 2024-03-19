@@ -16,3 +16,6 @@ quick access to run scripts
 
 # test
 the bad tests i wrote
+
+# future 
+see issues for ongoing development
