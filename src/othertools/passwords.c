@@ -114,7 +114,27 @@ void addPassword(char* password, char* application){
 }
 
 void showPasswords(){
-   printf("Need to implement this"); 
+    char* sql = "select password, application from pass_manage";
+    sqlite3_stmt* res = paramS(sql);
+    
+    char* password;
+    char* application;
+
+    printf("application | password\n");
+    printf("----------------------\n");
+
+    while(res){
+        password = fieldC(res, 1);
+        application = fieldC(res, 1);
+        printf("%s | %s\n", application, password);
+
+        res = step_result(res);
+    }
+
+    getchar();
+    printf("\n Press Enter To Continue");
+    while(getchar() != '\n');
+    
 }
 
 void getPasswordCommands(){

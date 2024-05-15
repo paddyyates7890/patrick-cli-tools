@@ -100,7 +100,7 @@ sqlite3_stmt* paramS(char* sql, ...){
     vsnprintf(newsql, 2000, sql, argptr);
     res = select_data(db, newsql);
 
-    closeDB(db, res);
+    closeDB(db, NULL);
 
     return res;
 }
