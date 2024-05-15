@@ -82,13 +82,13 @@ char* getWordyPassword(){
 
     char* sql = "SELECT WORD FROM WORDS WHERE ID = '%s' OR ID = '%s'"; 
     sqlite3_stmt* res = paramS(sql, id1Str, id2Str);
-    debug("TEST");
     char* password = malloc(512);
     char* word = malloc(256);
     while(res){
         word = fieldC(res, 0);
-        debug("%s", word);
+        debug("WORD: %s", word);
         strncat(password, word, (strlen(password) + strlen(word)));
+        debug("PASSWORD: %s", password);
         res = step_result(res);
     }
     
@@ -124,7 +124,7 @@ void showPasswords(){
     printf("----------------------\n");
 
     while(res){
-        password = fieldC(res, 1);
+        password = fieldC(res, 0);
         application = fieldC(res, 1);
         printf("%s | %s\n", application, password);
 
